@@ -59,6 +59,37 @@ public class Permutation {
         return result;
     }
 
+    //递归，根据输入的数字打印
+    //1 0-9
+    //2 00-99
+    //3 000-999
+    //5 00000-99999
+    
+    public static void main5(String[] args) {	
+		permutation(5);	
+	}
+
+	static StringBuilder sb=new StringBuilder();
+	public static void permutation(int num) {
+		if(num==1) {
+			for(int i=0;i<10;i++) {
+				sb.append(i);
+				System.out.print(sb.toString()+",");
+				sb.deleteCharAt(sb.length()-1);
+			}
+		}else if(num>1) {
+			for(int i=0;i<10;i++) {
+				sb.append(i);
+				permutation(num-1);
+				sb.deleteCharAt(sb.length()-1);
+			}
+			
+		}else {
+			return;
+		}
+	}
+}
+    
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3};
